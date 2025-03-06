@@ -9,10 +9,8 @@ import org.testng.annotations.BeforeMethod;
 import java.time.Duration;
 
     public class SharedData {
-        //public WebDriver driver;.
         private WebDriver driver;
         //inainte de fiecare metoda de test se executa aceastA secventa
-
         @BeforeMethod
         public void prepareEnviroment(){
             driver = new ChromeDriver();//deschidem un browser

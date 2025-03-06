@@ -79,15 +79,22 @@ public class ElementHelper {
         driver.findElement(locator).clear();
     }
 
-    public void validateElementText(By locator, String expectedMessage){
+    public void validateElementText(By locator, String expectedText){
         waitForVisible(locator);
-        String actualMessage=driver.findElement(locator).getText();
-        Assert.assertEquals(actualMessage,expectedMessage);
+        Assert.assertEquals(driver.findElement(locator).getText(),expectedText);
     }
 
     public void validateElementContainsText(WebElement element,String value){
         waitForVisible(element);
         Assert.assertTrue(element.getText().contains(value));
+    }
+
+    public void validateSizeList(By locator,int expectedSize){
+        waitForPresenceList(locator);
+        List<WebElement> initiallist=driver.findElements(locator);
+        int initialTableSize = initiallist.size();  //extragem dimensiunea listei
+        Assert.assertEquals(initialTableSize,expectedSize,"Dimensiunea listei este: "+ expectedSize); //compararea valorii initiale cu cea asteptata . In caz ca nu sunt egale, mesajul va fi afisat.
+
     }
 
 
