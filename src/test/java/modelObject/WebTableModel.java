@@ -19,6 +19,7 @@ public class WebTableModel {
     // Constructor care încarcă JSON fără mapare manuală
     public WebTableModel(String jsonFilePath) {
         ObjectMapper objectMapper = new ObjectMapper();
+
         try {
             objectMapper.readerForUpdating(this).readValue(new File(jsonFilePath));
         } catch (IOException e) {

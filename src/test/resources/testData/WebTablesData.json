@@ -4,10 +4,10 @@
   "userEmailValue": "georgiana@gmail.com",
   "ageValue" : "33",
   "salaryValue": "20000",
-  "departmentValue ": "QA",
+  "departmentValue": "QA",
   "editSalaryValue" : "30000",
   "editDepartmentValue": "Team lead QA",
-  "editAgeValue ": "34",
-  "newTableSize ": 4,
+  "editAgeValue": "34",
+  "newTableSize": 4,
   "actualTableSize" : 3
 }
