@@ -1,29 +1,26 @@
 package pages;
 
+import modelObject.PracticeFormModel;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pageLocators.PractiecFormLocator;
 import java.io.File;
-
 import java.util.List;
 
 public class PracticeFormPage extends BasePage{
     public PracticeFormPage(WebDriver driver) {
         super(driver);
     }
+    public void populateEntireForm(PracticeFormModel testData){
+        elementHelper.fillLocator(PractiecFormLocator.firstNameElement, testData.getFirstNameValue());//
 
-    public void populateEntireForm(String firstNameValue,String lastNameValue,String emailValue,
-                                   String genderValue,String mobileTelefon,List<String> subjectValues,List<String> hobbyValues,
-                                   String pictureValue,String addressValue,String stateInputValue,String cityInputValue){
-        elementHelper.fillLocator(PractiecFormLocator.firstNameElement,firstNameValue);
+        elementHelper.fillLocator(PractiecFormLocator.lastNameElement, testData.getLastNameValue());
 
-        elementHelper.fillLocator(PractiecFormLocator.lastNameElement,lastNameValue);
-
-        elementHelper.fillLocator(PractiecFormLocator.emailElement,emailValue);
+        elementHelper.fillLocator(PractiecFormLocator.emailElement, testData.getEmailValue());
 
         List<WebElement> genderElement = elementHelper.getListElements(PractiecFormLocator.genderLocator);
-        switch(genderValue){
+        switch(testData.getGenderValue()){
             case "Male":
                 elementHelper.clickJSLocator(genderElement.get(0));
                 break;
@@ -38,73 +35,69 @@ public class PracticeFormPage extends BasePage{
                 break;
         }
 
-        elementHelper.fillLocator(PractiecFormLocator.mobileElement,mobileTelefon);
+        elementHelper.fillLocator(PractiecFormLocator.mobileElement, testData.getMobileTelefon());
 
-        for (String subject:subjectValues){
+        for (String subject: testData.getSubjectValues()){
             elementHelper.fillPressLocator(PractiecFormLocator.subjectElement,subject, Keys.ENTER);
         }
 
         List<WebElement> hobbiesElement = elementHelper.getListElements(PractiecFormLocator.hobbiesLocator);
         for (WebElement hobby:hobbiesElement){
-            if (hobbyValues.contains(hobby.getText())){
+            if (testData.getHobbiesValue().contains(hobby.getText())){
                 elementHelper.clickJSLocator(hobby);
             }
         }
 
-        File file = new File(pictureValue);
+        File file = new File(testData.getPictureValue());
         elementHelper.fillLocator(PractiecFormLocator.pictureElement, file.getAbsolutePath());
 
-        elementHelper.fillLocator(PractiecFormLocator.adressElement,addressValue);
+        elementHelper.fillLocator(PractiecFormLocator.adressElement, testData.getAddressValue());
 
         elementHelper.clickJSLocator(PractiecFormLocator.stateElement);
 
-        elementHelper.fillPressLocator(PractiecFormLocator.stateInput,stateInputValue,Keys.ENTER);
+        elementHelper.fillPressLocator(PractiecFormLocator.stateInput, testData.getStateInputValue(), Keys.ENTER);
 
         elementHelper.clickJSLocator(PractiecFormLocator.cityInput);
 
-        elementHelper.fillPressLocator(PractiecFormLocator.cityInput,cityInputValue,Keys.ENTER);
+        elementHelper.fillPressLocator(PractiecFormLocator.cityInput, testData.getCityInputValue(), Keys.ENTER);
 
-        elementHelper.clickLocator(PractiecFormLocator.submitButton);
+        elementHelper.clickJSLocator(PractiecFormLocator.submitButton);
     }
 
-    public void validateEntireContent(String expectedMessage,String firstNameValue,String lastNameValue,String emailValue,
-                                      String genderValue,String mobileValue,List<String> subjectValues,
-                                      List<String> hobbyValues,String uploadFile,String addressValue,
-                                      String stateInputValue, String cityInputValue){
-        elementHelper.validateElementText(PractiecFormLocator.thankYouElement,expectedMessage);
-
+    public void validateEntireContent(PracticeFormModel testData){
+        elementHelper.validateElementText(PractiecFormLocator.thankYouElement, testData.getExpectedMessage());
 
         List<WebElement> tableContentList = elementHelper.getListElements(PractiecFormLocator.tableContentListLocator);
 
         elementHelper.validateElementContainsText(tableContentList.get(0),"Student Name");
-        elementHelper.validateElementContainsText(tableContentList.get(0),firstNameValue+' '+lastNameValue);
+        elementHelper.validateElementContainsText(tableContentList.get(0), testData.getFirstNameValue() +' '+ testData.getLastNameValue());
 
         elementHelper.validateElementContainsText(tableContentList.get(1),"Student Email");
-        elementHelper.validateElementContainsText(tableContentList.get(1),emailValue);
+        elementHelper.validateElementContainsText(tableContentList.get(1), testData.getEmailValue());
 
         elementHelper.validateElementContainsText(tableContentList.get(2),"Gender");
-        elementHelper.validateElementContainsText(tableContentList.get(2),genderValue);
+        elementHelper.validateElementContainsText(tableContentList.get(2), testData.getGenderValue());
 
         elementHelper.validateElementContainsText(tableContentList.get(3),"Mobile");
-        elementHelper.validateElementContainsText(tableContentList.get(3),mobileValue);
+        elementHelper.validateElementContainsText(tableContentList.get(3), testData.getMobileTelefon());
 
         elementHelper.validateElementContainsText(tableContentList.get(5),"Subjects");
-        String subjectValue = String.join(", ", subjectValues);
+        String subjectValue = String.join(", ", testData.getSubjectValues());
         elementHelper.validateElementContainsText(tableContentList.get(5),subjectValue);
 
         elementHelper.validateElementContainsText(tableContentList.get(6),"Hobbies");
-        String hobbyValue = String.join(", ", hobbyValues);
+        String hobbyValue = String.join(", ", testData.getHobbiesValue());
         elementHelper.validateElementContainsText(tableContentList.get(6),hobbyValue);
 
         elementHelper.validateElementContainsText(tableContentList.get(7),"Picture");
-        File file = new File(uploadFile);
+        File file = new File(testData.getPictureValue());
         String fileName = file.getName();
         elementHelper.validateElementContainsText(tableContentList.get(7),fileName);
 
         elementHelper.validateElementContainsText(tableContentList.get(8),"Address");
-        elementHelper.validateElementContainsText(tableContentList.get(8),addressValue);
+        elementHelper.validateElementContainsText(tableContentList.get(8), testData.getAddressValue());
 
         elementHelper.validateElementContainsText(tableContentList.get(9),"State and City");
-        elementHelper.validateElementContainsText(tableContentList.get(9),stateInputValue+' '+cityInputValue);
+        elementHelper.validateElementContainsText(tableContentList.get(9), testData.getStateInputValue()+' '+ testData.getCityInputValue());
     }
 }
