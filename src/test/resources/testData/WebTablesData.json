@@ -1,0 +1,13 @@
+{
+  "firstnameValue": "Georgiana",
+  "lastNameValue": "Leizeriuc",
+  "userEmailValue": "georgiana@gmail.com",
+  "ageValue" : "33",
+  "salaryValue": "20000",
+  "departmentValue ": "QA",
+  "editSalaryValue" : "30000",
+  "editDepartmentValue": "Team lead QA",
+  "editAgeValue ": "34",
+  "newTableSize ": 4,
+  "actualTableSize" : 3
+}

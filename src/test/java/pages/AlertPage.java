@@ -2,6 +2,7 @@ package pages;
 
 import helperMethods.AlertHelper;
 import helperMethods.ElementHelper;
+import modelObject.AlertModel;
 import org.openqa.selenium.WebDriver;
 import pageLocators.AlertLocators;
 
@@ -32,8 +33,8 @@ public class AlertPage {
         alertHelper.cancelAlert();
     }
 
-    public void interactWithValueAlert(String value){
+    public void interactWithValueAlert(AlertModel testData){
         elementHelper.clickLocator(AlertLocators.alertTextElement);
-       alertHelper.fillText(value);
+       alertHelper.fillText(testData.getPrompValue());
     }
 }

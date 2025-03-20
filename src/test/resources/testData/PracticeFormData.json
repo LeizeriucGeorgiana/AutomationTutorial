@@ -1,0 +1,21 @@
+{
+  "firstNameValue": "Georgiana",
+  "lastNameValue": "Leizeriuc",
+  "emailValue": "petrea.georgiana91@gmail.com",
+  "genderValue": "Female",
+  "mobileTelefon": "3434357487",
+  "subjectValues": [
+    "Arts",
+    "Accounting",
+    "Maths"
+  ],
+  "hobbiesValue": [
+    "Sports"
+  ,"Reading"
+  ],
+  "pictureValue": "src/test/resources/IMG20230521062701.jpg",
+  "addressValue": "Iasi,Nr45a",
+  "stateInputValue": "NCR",
+  "cityInputValue": "Noida",
+  "expectedMessage": "Thanks for submitting the form"
+}

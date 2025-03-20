@@ -1,3 +1,4 @@
+import modelObject.AlertModel;
 import org.testng.annotations.Test;
 import pages.AlertPage;
 import pages.IndexPage;
@@ -7,6 +8,7 @@ public class AlertTest extends SharedData {
     @Test
     public void metodaTest()
     {
+        AlertModel testData= new AlertModel("src/test/resources/testData/AlertData.json");
 
         // identificare pagina Alerts, Frame & Windows dupa nume
         IndexPage indexPage= new IndexPage(getDriver());//creem un obiect care primeste ca parametrru un driver
@@ -17,6 +19,6 @@ public class AlertTest extends SharedData {
         alertPage.interactWithAcceptAlert();
         alertPage.interactWithTimerAlert();
         alertPage.interactWithCancelAlert();
-        alertPage.interactWithValueAlert("Georgiana");
+        alertPage.interactWithValueAlert(testData);
     }
 }
