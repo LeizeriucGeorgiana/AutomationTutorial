@@ -1,3 +1,4 @@
+package tests;
 
 import modelObject.PracticeFormModel;
 import org.testng.annotations.Test;

@@ -1,5 +1,5 @@
-import helperMethods.ElementHelper;
-import helperMethods.FrameHelper;
+package tests;
+
 import org.testng.annotations.Test;
 import pages.FramePage;
 import pages.IndexPage;

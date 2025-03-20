@@ -16,14 +16,14 @@ public class WebTablePage extends BasePage {
 
     public void addNewEntry(WebTableModel testData) {
         elementHelper.validateSizeList(WebTableLocators.initialTableElementLocator, testData.getNewTableSize()-1);
-        elementHelper.clickLocator(WebTableLocators.addElement);
+        elementHelper.clickJSLocator(WebTableLocators.addElement);
         elementHelper.fillLocator(WebTableLocators.firstNameElement, testData.getFirstnameValue());
         elementHelper.fillLocator(WebTableLocators.lastNameElement, testData.getLastNameValue());
         elementHelper.fillLocator(WebTableLocators.userEmailElement, testData.getUserEmailValue());
         elementHelper.fillLocator(WebTableLocators.ageElement, testData.getAgeValue());
         elementHelper.fillLocator(WebTableLocators.salaryElement, testData.getSalaryValue());
         elementHelper.fillLocator(WebTableLocators.departmentElement, testData.getDepartmentValue());
-        elementHelper.clickLocator(WebTableLocators.submitElement);
+        elementHelper.clickJSLocator(WebTableLocators.submitElement);
         //validăm că avem 4 rânduri în tabel
         elementHelper.validateSizeList(WebTableLocators.addTableElementLocator, testData.getNewTableSize());
         //validăm conținutul tabelului

@@ -1,3 +1,5 @@
+package tests;
+
 import modelObject.AlertModel;
 import org.testng.annotations.Test;
 import pages.AlertPage;

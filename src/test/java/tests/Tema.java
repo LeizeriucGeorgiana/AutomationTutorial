@@ -1,10 +1,10 @@
+package tests;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
-
-import javax.swing.*;
 
 public class Tema {
     public WebDriver driver;

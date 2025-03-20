@@ -1,5 +1,5 @@
+package tests;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import pages.IndexPage;
 import pages.TabWindowPage;

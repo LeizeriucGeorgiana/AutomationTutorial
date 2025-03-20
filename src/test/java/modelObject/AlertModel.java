@@ -16,6 +16,7 @@ public class AlertModel {
     public void setPrompValue(String prompValue) {
         this.prompValue = prompValue;
     }
+
     //Constructorul citește fișierul JSON specificat de calea jsonFilePath și va  popula automat obiectul PracticeFormModel cu valorile din fișier.
     //Utilizarea readerForUpdating() permite ca obiectul curent (this) să fie actualizat, în loc să creeze un obiect complet nou.
     //readValue(new File(jsonFilePath)): este metoda care efectiv citește fișierul JSON și îl deserializa într-un obiect Java.

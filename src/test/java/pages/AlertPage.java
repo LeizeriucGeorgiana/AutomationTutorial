@@ -24,12 +24,12 @@ public class AlertPage {
 
     }
     public void interactWithTimerAlert(){
-        elementHelper .clickJSLocator(AlertLocators.alertTimerElement); //dam click
+        elementHelper .clickLocator(AlertLocators.alertTimerElement); //dam click
         alertHelper.acceptAlert();
     }
 
     public void interactWithCancelAlert(){
-        elementHelper.clickLocator((AlertLocators.alertOkCancelElement));//click
+        elementHelper.clickJSLocator((AlertLocators.alertOkCancelElement));//click
         alertHelper.cancelAlert();
     }
 

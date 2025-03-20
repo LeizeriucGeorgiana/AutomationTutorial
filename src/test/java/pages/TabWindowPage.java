@@ -18,7 +18,7 @@ public class TabWindowPage extends BasePage {
     }
 
     public void interactWithWindow(){
-        elementHelper.clickLocator(TabWindowLocators.newWindowElement);
+        elementHelper.clickJSLocator(TabWindowLocators.newWindowElement);
         System.out.println("Url-ul curent este: "+driver.getCurrentUrl());
         tabHelper.switchToSpecificTab(1);
         tabHelper.closeCurrentTab();

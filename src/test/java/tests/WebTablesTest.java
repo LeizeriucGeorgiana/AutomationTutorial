@@ -1,3 +1,4 @@
+package tests;
 
 import modelObject.WebTableModel;
 import org.testng.annotations.Test;
