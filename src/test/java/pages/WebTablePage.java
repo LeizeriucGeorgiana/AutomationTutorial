@@ -17,7 +17,8 @@ public class WebTablePage extends BasePage {
 
     public void addNewEntry(WebTableModel testData) {
         elementHelper.validateSizeList(WebTableLocators.initialTableElementLocator, testData.getNewTableSize() - 1);
-        LoggerUtility.infoLog("The modified values have been validated: ");
+        int actualSize= testData.getNewTableSize()-1;
+        LoggerUtility.infoLog("The modified values have been validated: " +actualSize);
         elementHelper.clickLocator(WebTableLocators.addElement);
 
         elementHelper.fillLocator(WebTableLocators.firstNameElement, testData.getFirstnameValue());
@@ -43,7 +44,7 @@ public class WebTablePage extends BasePage {
 
         //validăm că avem 4 rânduri în tabel
         elementHelper.validateSizeList(WebTableLocators.addTableElementLocator, testData.getNewTableSize());
-        LoggerUtility.infoLog("The user validates the table number of rows ");
+        LoggerUtility.infoLog("The user validates the size of the current list: " + testData.getNewTableSize());
 
         //validăm conținutul tabelului
         List<WebElement> addTableElementList = driver.findElements(WebTableLocators.addTableElementLocator);
