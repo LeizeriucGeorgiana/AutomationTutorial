@@ -10,7 +10,6 @@ public class FrameTest extends SharedData {
     @Test
     public void metodaTest() {
 
-
         IndexPage indexPage = new IndexPage(getDriver());
         indexPage.clickOnAlertWindowMenu();
         indexPage.clickOnFrameSubMenu();

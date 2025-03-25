@@ -119,7 +119,7 @@ public class PracticeFormPage extends BasePage{
 
         elementHelper.validateElementContainsText(tableContentList.get(8),"Address");
         elementHelper.validateElementContainsText(tableContentList.get(8), testData.getAddressValue());
-        LoggerUtility.infoLog("The user validates Adress Value" + testData.getAddressValue());
+        LoggerUtility.infoLog("The user validates Address Value" + testData.getAddressValue());
 
         elementHelper.validateElementContainsText(tableContentList.get(9),"State and City");
         elementHelper.validateElementContainsText(tableContentList.get(9), testData.getStateInputValue()+' '+ testData.getCityInputValue());

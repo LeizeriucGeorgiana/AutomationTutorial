@@ -2,6 +2,7 @@ package pages;
 
 import helperMethods.AlertHelper;
 import helperMethods.ElementHelper;
+import loggerUtility.LoggerUtility;
 import modelObject.AlertModel;
 import org.openqa.selenium.WebDriver;
 import pageLocators.AlertLocators;
@@ -18,23 +19,30 @@ public class AlertPage {
     }
 
     public void interactWithAcceptAlert(){
-
        elementHelper .clickJSLocator(AlertLocators.alertOkElement); //dam click
+        LoggerUtility.infoLog("The user clicks on the click me alert element ");
         alertHelper.acceptAlert();
+        LoggerUtility.infoLog("The user accepted the alert");
 
     }
     public void interactWithTimerAlert(){
-        elementHelper .clickLocator(AlertLocators.alertTimerElement); //dam click
+        elementHelper .clickJSLocator(AlertLocators.alertTimerElement); //dam click
+        LoggerUtility.infoLog("The user clicks on the 'click me' alert timer element ");
         alertHelper.acceptAlert();
+        LoggerUtility.infoLog("The user accepted the alert");
     }
 
     public void interactWithCancelAlert(){
         elementHelper.clickJSLocator((AlertLocators.alertOkCancelElement));//click
+        LoggerUtility.infoLog("The user clicks on the 'click me' alert cancel element ");
         alertHelper.cancelAlert();
+        LoggerUtility.infoLog("The user canceled the alert");
     }
 
     public void interactWithValueAlert(AlertModel testData){
-        elementHelper.clickLocator(AlertLocators.alertTextElement);
+        elementHelper.clickJSLocator(AlertLocators.alertTextElement);
+        LoggerUtility.infoLog("The user clicks on the 'click me' alert text element ");
        alertHelper.fillText(testData.getPrompValue());
+        LoggerUtility.infoLog("The user fills the name with value :" + testData.getPrompValue());
     }
 }
