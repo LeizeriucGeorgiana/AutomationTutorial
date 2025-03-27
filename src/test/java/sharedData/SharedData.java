@@ -23,7 +23,6 @@ import java.time.Duration;
             ChromeOptions options= new ChromeOptions();
             options.addArguments("--headless=new");
 
-
             driver = new ChromeDriver();//deschidem un browser
             //accesam o pagina web
             driver.get("https://demoqa.com");
