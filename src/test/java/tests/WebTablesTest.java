@@ -5,9 +5,10 @@ import org.testng.annotations.Test;
 import pages.IndexPage;
 import pages.WebTablePage;
 import sharedData.SharedData;
+import suites.TestSuite;
 
 public class WebTablesTest extends SharedData {
-    @Test
+    @Test (groups =  {TestSuite.REGRESION_SUITE, TestSuite.Element_SUITE})
     public void metodaTest ()
     {
 

@@ -5,10 +5,11 @@ import org.testng.annotations.Test;
 import pages.IndexPage;
 import pages.PracticeFormPage;
 import sharedData.SharedData;
+import suites.TestSuite;
 
 public class PracticeFormTest extends SharedData {
 
-    @Test
+    @Test (groups =  {TestSuite.REGRESION_SUITE, TestSuite.FORM_SUITE})
     public void metodaTest()
     {
         //Această linie de cod creează un obiect de tip PracticeFormModel și, pe baza căii fișierului JSON furnizate,

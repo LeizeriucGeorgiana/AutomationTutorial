@@ -5,9 +5,11 @@ import org.testng.annotations.Test;
 import pages.AlertPage;
 import pages.IndexPage;
 import sharedData.SharedData;
+import suites.TestCaseSuite;
+import suites.TestSuite;
 
 public class AlertTest extends SharedData {
-    @Test
+    @Test (groups =  {TestSuite.REGRESION_SUITE, TestSuite.ALLERT_FRAME_SUITE, TestCaseSuite.TIKET_123,TestCaseSuite.TC_457})
     public void metodaTest()
     {
         AlertModel testData= new AlertModel("src/test/resources/testData/AlertData.json");
