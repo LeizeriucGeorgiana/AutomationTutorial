@@ -72,7 +72,7 @@
                     </suiteXmlFiles>
                     <parallel>classes</parallel> <!-- Rulează teste în paralel -->
                     <threadCount>${threads}</threadCount> <!-- Specifică numărul de threaduri -->
-                    <forkCount>0</forkCount> <!-- Nu folosi procese forked -->
+                    <forkCount>1</forkCount> <!-- Nu folosi procese forked -->
                     <reuseForks>false</reuseForks> <!-- Previne reutilizarea fork-urilor -->
                 </configuration>
             </plugin>
