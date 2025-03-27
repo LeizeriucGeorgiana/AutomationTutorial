@@ -15,7 +15,7 @@ import java.time.Duration;
 
 
         //inainte de fiecare metoda de test se executa aceastA secventa
-        @BeforeMethod
+        @BeforeMethod (alwaysRun = true)
         public void prepareEnviroment(){
             testName=this.getClass().getSimpleName();
             LoggerUtility.startTest(testName);
@@ -28,7 +28,7 @@ import java.time.Duration;
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         }
 
-        @AfterMethod
+        @AfterMethod (alwaysRun = true)
         public void clearEnviroment(){
             driver.quit();
             LoggerUtility.finishTest(testName);

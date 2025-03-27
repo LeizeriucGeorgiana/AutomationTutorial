@@ -12,6 +12,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <threads>1</threads>
     </properties>
 
     <dependencies>
@@ -70,7 +71,7 @@
                         <suiteXmlFile>testng.xml</suiteXmlFile> <!-- Calea către fișierul tău testng.xml -->
                     </suiteXmlFiles>
                     <parallel>classes</parallel> <!-- Rulează teste în paralel -->
-                    <threadCount>3</threadCount> <!-- Specifică numărul de threaduri -->
+                    <threadCount>${threads}</threadCount> <!-- Specifică numărul de threaduri -->
                     <forkCount>0</forkCount> <!-- Nu folosi procese forked -->
                     <reuseForks>false</reuseForks> <!-- Previne reutilizarea fork-urilor -->
                 </configuration>
