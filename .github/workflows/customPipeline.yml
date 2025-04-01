@@ -37,6 +37,6 @@ jobs:
         cache: maven
         
     - name: Run Automation Tests
-      run: mvn clean install  -Dremote=true -Dgroups=${ {github.event.inputs.suite }} -Dthreads=${{ github.event.inputs.workers }}
+      run: mvn clean install  -Dremote=true -Dgroups=$ {{ github.event.inputs.suite }} -Dthreads=${{ github.event.inputs.workers }}
 
   
