@@ -16,8 +16,8 @@ public class WebTablePage extends BasePage {
     }
 
     public void addNewEntry(WebTableModel testData) {
-        elementHelper.validateSizeList(WebTableLocators.initialTableElementLocator, testData.getNewTableSize() - 1);
         int actualSize= testData.getNewTableSize()-1;
+        elementHelper.validateSizeList(WebTableLocators.initialTableElementLocator, testData.getNewTableSize() - 1);
         LoggerUtility.infoLog("The modified values have been validated: " +actualSize);
         elementHelper.clickLocator(WebTableLocators.addElement);
 
@@ -62,7 +62,6 @@ public class WebTablePage extends BasePage {
         Assert.assertTrue(rowText.contains(testData.getAgeValue()));
         LoggerUtility.infoLog("The user validates the contents of the table for age  : " + testData.getAgeValue());
     }
-
     public void editNewEntry(WebTableModel testData) {
         elementHelper.clickJSLocator(WebTableLocators.editElement);
 
