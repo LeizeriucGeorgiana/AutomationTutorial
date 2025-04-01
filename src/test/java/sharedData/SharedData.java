@@ -20,12 +20,20 @@ import java.time.Duration;
         public void prepareEnviroment(){
             testName=this.getClass().getSimpleName();
 
-            ChromeOptions options= new ChromeOptions();
-            options.addArguments("--headless=new");
-
-            driver = new ChromeDriver();//deschidem un browser
+            String remoteEnv= System.getProperty("remote");
+            if (Boolean.parseBoolean(remoteEnv))
+            {
+                ChromeOptions options= new ChromeOptions();
+                options.addArguments("--headless=new");
+                driver = new ChromeDriver(options);
+            }
+            else
+            {
+                driver = new ChromeDriver();//deschidem un browser
+                 }
             //accesam o pagina web
             driver.get("https://demoqa.com");
+
             //facem browserul in modul maximize
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));

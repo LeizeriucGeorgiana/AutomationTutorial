@@ -66,6 +66,10 @@
                 <artifactId>maven-surefire-plugin</artifactId> <!-- Asigură-te că folosești o versiune compatibilă -->
                 <version>3.1.2</version>
                 <configuration>
+                    <systemPropertyVariables>
+                        <remote>false</remote>
+
+                    </systemPropertyVariables>
                     <argLine>-Xmx1024m</argLine> <!-- Alocă mai multă memorie JVM -->
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile> <!-- Calea către fișierul tău testng.xml -->
