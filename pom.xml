@@ -67,7 +67,7 @@
                 <version>3.1.2</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <remote>false</remote>
+                        <remote>false</remote>  <!-- proprietate setata ce  specifica faptul ca suntem pe local-->
                     </systemPropertyVariables>
                     <argLine>-Xmx1024m</argLine> <!-- Alocă mai multă memorie JVM -->
                     <suiteXmlFiles>

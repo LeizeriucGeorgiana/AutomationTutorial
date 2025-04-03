@@ -21,11 +21,11 @@ import java.time.Duration;
             testName=this.getClass().getSimpleName();
 
             String remoteEnv= System.getProperty("remote");
-            if (Boolean.parseBoolean(remoteEnv))
+            if (Boolean.parseBoolean(remoteEnv)) // convertește string-ul remoteEnv într-o valoare booleană (true sau false).
             {
                 ChromeOptions options= new ChromeOptions();
-                options.addArguments("--headless=new");
-                driver = new ChromeDriver(options);
+                options.addArguments("--headless=new"); //Se adaugă un argument care instruiește Chrome să ruleze într-un mod headless, adică fără a deschide o fereastră vizibilă de browser (util pentru execuția pe servere sau în medii CI/CD unde nu este necesar să vezi interfața grafică).
+                driver = new ChromeDriver(options); //Se creează o instanță a ChromeDriver cu opțiunile specificate anterior, ceea ce înseamnă că se va lansa un browser Chrome într-un mod headless.
             }
             else
             {
